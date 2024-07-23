@@ -1,0 +1,8 @@
+version: '3.8'
+
+services:
+  management_jobs:
+    image: registry.gitlab.com/ledsifes/tools/management_jobs
+    env_file:
+      - .env
+    restart: unless-stopped
