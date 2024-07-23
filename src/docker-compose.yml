@@ -1,0 +1,11 @@
+version: '3.8'
+
+services:
+  cron_jobs:
+    build: .
+    env_file:
+      - .env
+    volumes:
+      - .:/app
+    # Definimos o container para rodar em background e ser o único serviço
+    restart: always
