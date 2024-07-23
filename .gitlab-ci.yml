@@ -1,0 +1,35 @@
+# .gitlab-ci.yml
+
+stages:
+  - build
+  - deploy
+
+variables:
+  # URL do Docker Registry do GitLab
+  DOCKER_REGISTRY: "registry.gitlab.com"
+  # Nome da imagem Docker com base no namespace e nome do projeto do GitLab
+  IMAGE_NAME: "$DOCKER_REGISTRY/$CI_PROJECT_NAMESPACE/$CI_PROJECT_NAME"
+  # Tag da imagem Docker
+  IMAGE_TAG: "latest"
+
+# Job para construir a imagem Docker
+build:
+  stage: build
+  image: docker:20.10.7
+  services:
+    - docker:dind
+  script:
+    - docker login -u "$CI_REGISTRY_USER" -p "$CI_REGISTRY_PASSWORD" $DOCKER_REGISTRY
+    - docker build -t $IMAGE_NAME:$IMAGE_TAG .
+    - docker push $IMAGE_NAME:$IMAGE_TAG
+  only:
+    - main
+
+# Job para fazer deploy (se necessário)
+deploy:
+  stage: deploy
+  image: docker:20.10.7
+  script:
+    - echo "Deploy step is not configured yet"
+  only:
+    - main
