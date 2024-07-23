@@ -12,15 +12,30 @@ O job `job_daly_report` foi criado para gerar um relatório diário detalhado so
 
 Os dados gerados por este job são enviados automaticamente para um canal específico no Discord, mantendo todos os membros da equipe atualizados sobre o progresso diário e quaisquer desafios enfrentados.
 
-## Job: `job_resumo_sprint`
+## Job: `job_resume_sprint`
 
-O job `job_resumo_sprint` foi desenvolvido para fornecer uma visão geral do sprint atual, com foco em métricas de progresso. Este job gera um resumo contendo:
+O job `job_resume_sprint` foi desenvolvido para fornecer uma visão geral do sprint atual, com foco em métricas de progresso. Este job gera um resumo contendo:
 
 - Percentual de tarefas concluídas
 - Percentual de tarefas não concluídas
 - Observações sobre o desempenho do sprint
 
 Esses dados são também enviados para um canal dedicado no Discord, facilitando a análise do progresso do sprint e permitindo ajustes nas estratégias da equipe em tempo real.
+
+
+## Job: `job_resume_project`
+
+O job `job_resume_project` foi criado para gerar um relatório diário detalhado sobre status do projeto. Este job compila informações relevantes do projeto, incluindo:
+
+- Velocidade da Equipe
+- Trabalho Restante
+- Data Estimada de Conclusão
+- Número de Tarefas Concluídas
+- Número de Tarefas Pendentes
+- Número de Tarefas Não Realizadas
+- Percentual Concluído
+
+Os dados gerados por este job são enviados automaticamente para um canal específico no Discord, mantendo todos os membros da equipe atualizados sobre o progresso diário e quaisquer desafios enfrentados.
 
 ---
 
