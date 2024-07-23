@@ -3,7 +3,10 @@ from jira import JIRA
 from datetime import datetime
 import nltk
 import re
+from dotenv import load_dotenv
 import os
+# Carregar variáveis de ambiente do arquivo .env
+load_dotenv()
 
 # Baixar o recurso necessário do NLTK
 nltk.download('punkt')

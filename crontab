@@ -5,3 +5,6 @@
 
 # Executar job_resumo_sprint.py todos os dias úteis (segunda a sexta-feira) às 17 horas
 0 17 * * 1-5 python /app/job_resumo_sprint.py >> /var/log/cron.log 2>&1
+
+# Executar job_resumo_sprint.py todos os dias úteis (segunda a sexta-feira) às 17 horas
+0 17 * * 1-5 python /app/job_resumo_projeto.py >> /var/log/cron.log 2>&1

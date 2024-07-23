@@ -3,6 +3,10 @@ import os
 from datetime import datetime
 import requests
 import matplotlib.pyplot as plt
+from dotenv import load_dotenv
+
+# Carregar variáveis de ambiente do arquivo .env
+load_dotenv()
 
 jira_url = os.getenv('JIRA_URL')
 jira_username = os.getenv('JIRA_USERNAME')
