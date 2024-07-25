@@ -88,27 +88,36 @@ def process_board(board_id):
 
             # Construir o conteúdo da mensagem
             content = (
-                f"**Relatório Diário: Sprint {sprint_name} ({sprint_start_date} - {sprint_end_date})**\n\n"
+                f"**Relatório Diário: {sprint_name} ({sprint_start_date} - {sprint_end_date})**\n\n"
                 f"**Total de Tarefas:** {total_tasks}\n"
                 f"**Tarefas Concluídas:** {completed_tasks}\n"
                 f"**Percentual Concluído:** {completion_percentage:.2f}%\n"
                 f"**Tarefas Restantes:** {remaining_tasks}\n\n"
                 "## Tarefas por Status e Pessoa:\n"
             )
+            
+            text_data = {'content': content}
+            text_response = requests.post(webhook_url, json=text_data)
+
+            print(f"Status Code do Texto: {text_response.status_code}")
+            print(f"Resposta do Discord do Texto: {text_response.text}")
 
             for status, assignees in tasks_by_status_and_assignee.items():
+                content = ""
                 content += f"\n**{status}:**\n"
                 for assignee, tasks in assignees.items():
                     content += f"\n**{assignee}:**\n"
                     content += "\n".join(tasks)
                     content += "\n"
+                text_data = {'content': content}
+                text_response = requests.post(webhook_url, json=text_data)
 
-            # Enviar a mensagem de texto para o Discord
-            text_data = {'content': content}
-            text_response = requests.post(webhook_url, json=text_data)
             print(f"Status Code do Texto: {text_response.status_code}")
             print(f"Resposta do Discord do Texto: {text_response.text}")
 
+
+            # Enviar a mensagem de texto para o Discord
+            
             # Enviar a imagem para o Discord
             with open('task_counts.png', 'rb') as file:
                 image_data = {

@@ -20,9 +20,6 @@ webhook_url = os.getenv('WEBHOOK_URL')
 # Autenticar no Jira
 jira = JIRA(basic_auth=(jira_username, jira_api_token), options={'server': jira_url})
 
-# Autenticar no Jira
-jira = JIRA(basic_auth=(jira_username, jira_api_token), options={'server': jira_url})
-
 def summarize_text(text, max_chars=500):
     """Resume o texto para que não exceda o limite de caracteres."""
     # Dividir o texto em frases
@@ -133,7 +130,7 @@ def process_board(board_id):
 
             # Enviar a mensagem de cabeçalho
             header_content = (
-                f"**Relatório Diário: Sprint {sprint_name} ({sprint_start_date} - {sprint_end_date})**\n"
+                f"# Relatório Diário: {sprint_name} ({sprint_start_date} - {sprint_end_date})\n"
             )
             header_messages = split_message(header_content)
             for msg in header_messages:
@@ -146,7 +143,7 @@ def process_board(board_id):
             for person, task_info in tasks_by_person.items():
                 # Construir o conteúdo da mensagem
                 base_content = (
-                    f"**Nome: {person}**\n\n"
+                    f"# Nome: {person}\n\n"
                     f"## Tarefas Em Andamento:\n"
                 )
 
