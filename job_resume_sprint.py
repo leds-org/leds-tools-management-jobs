@@ -88,12 +88,12 @@ def process_board(board_id):
 
             # Construir o conteúdo da mensagem
             content = (
-                f"**Relatório Diário: {sprint_name} ({sprint_start_date} - {sprint_end_date})**\n\n"
+                f"# Relatório Diário: {sprint_name} ({sprint_start_date} - {sprint_end_date})\n\n"
                 f"**Total de Tarefas:** {total_tasks}\n"
                 f"**Tarefas Concluídas:** {completed_tasks}\n"
                 f"**Percentual Concluído:** {completion_percentage:.2f}%\n"
                 f"**Tarefas Restantes:** {remaining_tasks}\n\n"
-                "## Tarefas por Status e Pessoa:\n"
+                "# Tarefas por Status e Pessoa:\n"
             )
             
             text_data = {'content': content}
@@ -104,7 +104,7 @@ def process_board(board_id):
 
             for status, assignees in tasks_by_status_and_assignee.items():
                 content = ""
-                content += f"\n**{status}:**\n"
+                content += f"\n ## {status}: \n"
                 for assignee, tasks in assignees.items():
                     content += f"\n**{assignee}:**\n"
                     content += "\n".join(tasks)
