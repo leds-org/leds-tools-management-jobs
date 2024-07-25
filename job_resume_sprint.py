@@ -121,7 +121,7 @@ def process_board(board_id):
             # Enviar a imagem para o Discord
             with open('task_counts.png', 'rb') as file:
                 image_data = {
-                    'content': 'Aqui está o gráfico das tarefas por status:'
+                    'content': '# Gráfico das tarefas por status:'
                 }
                 image_files = {
                     'file': ('task_counts.png', file, 'image/png')

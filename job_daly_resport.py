@@ -79,13 +79,13 @@ def process_board(board_id):
 
         if sprint_id:
             # Data de hoje
-            today = datetime.now().strftime('%Y-%m-%d')
+            #today = datetime.now().strftime('%Y-%m-%d')
 
             # Buscar todas as tarefas do sprint ativo
-            jql_query = (f'sprint = {sprint_id} AND (status = "In Progress" OR status = "Done" '
-                         f'AND updated >= {today} AND updated <= {today})')
+            jql_query = (f'sprint = {sprint_id} AND (status = "In Progress" OR (status = "Done"'
+                         f'AND  updated >= startOfDay()))')
             issues = jira.search_issues(jql_query)
-
+            print (issues)
             # Organizar tarefas por pessoa
             tasks_by_person = {}
             for issue in issues:
