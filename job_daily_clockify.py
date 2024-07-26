@@ -8,8 +8,8 @@ import os
 load_dotenv()
 
 # Configurações da API do Clockify
-CLOCKIFY_API_KEY = 'YTA4NjQyZjItNmRjOC00ODFkLWIwZmItNmY0ZmU2YjJhZjUz'
-CLOCKIFY_WORKSPACE_ID = '65f486199c30924868182a19'
+CLOCKIFY_API_KEY = os.getenv('CLOCKIFY_API_KEY')
+CLOCKIFY_WORKSPACE_ID = os.getenv('CLOCKIFY_WORKSPACE_ID')
 CLOCKIFY_BASE_URL = 'https://api.clockify.me/api/v1'
 CLOCKIFY_HEADERS = {
     'X-Api-Key': CLOCKIFY_API_KEY
