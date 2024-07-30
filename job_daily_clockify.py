@@ -16,7 +16,7 @@ CLOCKIFY_HEADERS = {
 }
 
 # Configuração do Webhook do Discord
-DISCORD_WEBHOOK_URL = 'https://discord.com/api/webhooks/1265285697615429642/zBD-y6TpCtZcFMa5n5UxrhrgiU7ClB8PeNoXJbaby3h6rt1lAvDw2pZeSha3LDoUBYr9'
+DISCORD_WEBHOOK_URL = os.getenv('WEBHOOK_URL')
 
 # Função para converter duração (PTnHnMnS) em horas decimais
 def parse_duration(duration):
