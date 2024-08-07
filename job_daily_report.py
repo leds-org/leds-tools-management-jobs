@@ -5,6 +5,8 @@ import nltk
 import re
 from dotenv import load_dotenv
 import os
+
+
 # Carregar variáveis de ambiente do arquivo .env
 load_dotenv()
 
@@ -214,6 +216,3 @@ def main():
 
     except Exception as e:
         print(f"Ocorreu um erro: {e}")
-
-if __name__ == "__main__":
-    main()
