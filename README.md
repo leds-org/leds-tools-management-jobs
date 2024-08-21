@@ -51,3 +51,18 @@ Os dados gerados por este job são enviados automaticamente para um canal espec�
 ---
 
 Esses jobs são parte de um sistema integrado para gerenciamento eficiente de projetos, proporcionando insights detalhados e atualizados sobre o desempenho da equipe e o andamento das tarefas diretamente no Discord.
+
+
+## Configurando o JOB
+
+Para configurar o JOB é necessário criar um aquivo .env com os seguintes dados:
+
+JIRA_URL = 
+JIRA_USERNAME = 
+JIRA_API_TOKEN = 
+
+# Configurar o Webhook do Discord
+WEBHOOK_URL = 
+
+CLOCKIFY_API_KEY = 
+CLOCKIFY_WORKSPACE_ID = 
