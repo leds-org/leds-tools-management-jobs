@@ -13,6 +13,18 @@ jobs:
     runs-on: ubuntu-latest
 
     steps:
-    - uses: actions/checkout@v4
-    - name: Build Docker image
-      run: docker build . --file Dockerfile --tag managementjob:$(date +%s)
+    - name: Checkout Github Action
+      uses: actions/checkout@v4
+    
+    - name: Log in to GHCR
+      uses: docker/login-action@v2
+      with:
+        registry: ghcr.io
+        username: ${{ github.actor }}
+        password: ${{ secrets.GITHUB_TOKEN }}
+
+    - name: Build Inventory Image
+      run: |
+        IMAGE_TAG=ghcr.io/leds-org/managementjob:$(date +%s)
+        docker build . --tag $IMAGE_TAG
+        docker push $IMAGE_TAG
